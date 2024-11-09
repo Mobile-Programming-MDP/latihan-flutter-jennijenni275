@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:wisata_candi/models/candi.dart';
+import 'package:wisata_candi/candi.dart';
 
 class DetailScreen extends StatelessWidget {
   final Candi candi;
@@ -27,7 +27,7 @@ class DetailScreen extends StatelessWidget {
                       width: double.infinity,
                       fit: BoxFit.cover,
                     ),
-                  ),
+                  )
                 ),
               ],
             ),
@@ -124,14 +124,14 @@ class DetailScreen extends StatelessWidget {
                   Divider(
                     color: Colors.deepPurple.shade100,
                   ),
-                  Text(
+                  const Text(
                     "Galeri",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   SizedBox(
@@ -164,7 +164,7 @@ class DetailScreen extends StatelessWidget {
                                     color: Colors.deepPurple[50],
                                   ),
                                   errorWidget: (context, url, error) =>
-                                      Icon(Icons.error),
+                                      const Icon(Icons.error),
                                 ),
                               ),
                             ),
@@ -173,10 +173,10 @@ class DetailScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 4,
                   ),
-                  Text(
+                  const Text(
                     'Tap untuk memperbesar',
                     style: TextStyle(
                       fontSize: 12,
