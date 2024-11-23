@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Signupscreen extends StatefulWidget {
   const Signupscreen({super.key});
@@ -16,10 +17,11 @@ class _SignupscreenState extends State<Signupscreen> {
   bool _obsurePassword = true;
 
   //TODO 1: Fungsi Sign Up
-  void signUp() {
-    String name = _namaController.text.trim();
-    String username = _usernameController.text.trim();
-    String password = _passwordController.text.trim();
+  void signUp() async{
+    final SharedPreferences preferences = await SharedPreferences.getInstance();
+    final String name = _namaController.text.trim();
+    final String username = _usernameController.text.trim();
+    final String password = _passwordController.text.trim();
 
     if (password.length < 8 ||
         password.contains(RegExp(r'[A-Z]')) ||
@@ -40,6 +42,10 @@ class _SignupscreenState extends State<Signupscreen> {
     print('Nama : $name');
     print('Nama Pengguna : $username');
     print('Kata Sandi : $password');
+
+
+    //buat navigasi ke signInsreen
+    Navigator.pushReplacementNamed(context, '/signin');
   }
 
   //TODO 2: Fungsi bispose

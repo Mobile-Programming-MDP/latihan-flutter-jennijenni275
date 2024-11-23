@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:wisata_candi/Favorite_screen.dart';
+import 'package:wisata_candi/SignInScreen.dart';
+import 'package:wisata_candi/detail_screen.dart';
 import 'package:wisata_candi/Home_screen.dart';
-import 'package:wisata_candi/data/candi_data.dart';
-import 'package:wisata_candi/profil_screen.dart';
 import 'package:wisata_candi/search_screen.dart';
-import 'package:wisata_candi/favorite_screen.dart';
+import 'package:wisata_candi/profil_screen.dart';
+import 'package:wisata_candi/sign_up_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,13 +16,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'signUp',
-      home: MainScreen(),
-      // home : HomeScreen(),
-      // home: SearchScreen(),
-      // home: ProfileScreen(),
-      // home: DetailScreen(candi: candiList[0],),
+    return MaterialApp(
+      home: SignInScreen(),
+      title: 'Wisata Candi',
+      
+      initialRoute: '/',
+      routes: {
+        '/homescreen' : (context)=> HomeScreen(),
+        '/signin' : (context) =>  SignInScreen(),
+        '/signup' : (context) => Signupscreen(),
+      },
+      // Uncomment and adjust theme as needed
+      // theme: ThemeData(
+      //   appBarTheme: const AppBarTheme(
+      //     iconTheme: IconThemeData(color: Colors.deepPurple),
+      //     titleTextStyle: TextStyle(
+      //       color: Colors.deepPurple,
+      //       fontSize: 20,
+      //       fontWeight: FontWeight.bold,
+      //     ),
+      //   ),
+      //   colorScheme:
+      //       ColorScheme.fromSeed(seedColor: Colors.deepPurple).copyWith(
+      //     primary: Colors.deepPurple,
+      //     surface: Colors.deepPurple[50],
+      //   ),
+      //   useMaterial3: true,
+      // ),
     );
   }
 }
@@ -33,7 +55,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  // TODO: 1. Deklarasikan variabel
+  // TODO1: Deklarasi Variabel
   int _currentIndex = 0;
   final List<Widget> _children = [
     HomeScreen(),
@@ -45,16 +67,15 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // TODO: 2. Buat properti body berupa widget yang ditampilkan
+      // TODO2:body
       body: _children[_currentIndex],
 
-      // TODO: 3. Buat properti bottomNavigationBar dengan nilai Theme
+      //TODO3: BottomNavigationBar
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
           canvasColor: Colors.deepPurple[50],
         ),
-
-        // TODO: 4. Buat data dan child dari Theme
+        //TODO4: Buat data dan child dari theme
         child: BottomNavigationBar(
           currentIndex: _currentIndex,
           onTap: (index) {
@@ -67,24 +88,24 @@ class _MainScreenState extends State<MainScreen> {
           showUnselectedLabels: true,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home, color: Colors.deepPurple),
-              label: 'Home',
+              icon: Icon(Icons.home),
+              label: "Home",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.search, color: Colors.deepPurple),
-              label: 'Search',
+              icon: Icon(Icons.search),
+              label: "Search",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.favorite, color: Colors.deepPurple),
-              label: 'Favorite',
+              icon: Icon(Icons.favorite),
+              label: "Favorit",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person, color: Colors.deepPurple),
-              label: 'Profile',
+              icon: Icon(Icons.person),
+              label: "Profile",
             ),
           ],
         ),
-      ),
-    );
-  }
+     ),
+);
+}
 }
