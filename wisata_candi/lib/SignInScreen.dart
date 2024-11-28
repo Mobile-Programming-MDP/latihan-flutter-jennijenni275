@@ -121,7 +121,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             ..onTap = () {
                               Navigator.pushNamed(context, '/signup');
                             },
-                        ),
+                        _),
                       ],
                     ),
                   ),
