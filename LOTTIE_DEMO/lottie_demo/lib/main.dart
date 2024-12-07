@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -10,20 +13,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: ListView(
-          children: [
-            // Load a Lottie file from your assets
-            Lottie.asset('assets/LottieLogo1.json'),
-
-            // Load a Lottie file from a remote url
-            Lottie.network(
-                'https://raw.githubusercontent.com/xvrh/lottie-flutter/master/example/assets/Mobilo/A.json'),
-
-            // Load an animation and its images from a zip file
-            Lottie.asset('assets/lottiefiles/angel.zip'),
-          ],
+        appBar: AppBar(
+          title: const Text('Contoh Animasi Lottie'),
         ),
-      ),
-    );
-  }
+        body: Center(
+          child: LoadingAnimationWidget.staggeredDotsWave(
+            leftDotColor: const Color(0xFF1A1A3F),
+            rightDotColor: const Color(0xFFEA3799),
+            size: 200,
+          ),
+        ),
+     ),
+);
+}
 }
